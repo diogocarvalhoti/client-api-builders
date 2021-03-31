@@ -6,6 +6,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: client-api
+    container_name: client-resource
     ports:
       - 8080:8080

@@ -14,7 +14,7 @@ jobs:
     
     - uses: azure/docker-login@v1
       with:
-        login-server: diogo.azurecr.io
+        login-server: resource.azurecr.io
         username: ${{ secrets.acr_diogo_username }}
         password: ${{ secrets.acr_diogo_password }}
     
@@ -26,8 +26,8 @@ jobs:
 
     - name: Set Web App ACR authentication
       uses: Azure/appservice-settings@v1
-      with: 
-        app-name: client-api-builders
+      with:
+        app-name: client-resource-builders
         app-settings-json: | 
           [
             {
@@ -46,8 +46,8 @@ jobs:
               "slotSetting": false
             }            
           ]
-      
+
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: client-api-builders
-        images: diogo.azurecr.io/clientapibuilders-img:${{ github.sha }}
+        app-name: client-resource-builders
+        images: resource.azurecr.io/clientapibuilders-img:${{ github.sha }}

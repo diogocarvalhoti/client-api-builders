@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -8,14 +8,28 @@
 		<version>2.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>io.platformbuilders.diogo</groupId>
+	<groupId>io.platformbuilders.api</groupId>
 	<artifactId>client-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>API de clientes</name>
 	<description>API de clientes desenvolvida para o processo seletivo - Diogo Carvalho de Matos</description>
 
+	<developers>
+		<developer>
+			<id>diogo</id>
+			<name>Diogo Carvalho de Matos</name>
+			<email>diogocarvalho.ti@gmail.com</email>
+		</developer>
+	</developers>
+
+	<ciManagement>
+		<system>github</system>
+		<url>https://github.com/diogocarvalhoti/client-api-builders/actions</url>
+	</ciManagement>
+
 	<properties>
 		<java.version>11</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
@@ -57,6 +71,17 @@
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.4</version>
 		</dependency>
 	</dependencies>
 

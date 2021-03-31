@@ -32,17 +32,8 @@ docker-compose up -d
 
 Após realizar a instalação e execução da API
 
-**1** - Selecione o link [Swagger](http://localhost:8080/swagger-ui.html)
+**1** - Selecione o link [Swagger](http://client-api-builders.azurewebsites.net/api/v1/swagger-ui/index.html)
 
-**2** - Selecione o item **pessoa-resource** 
+**2** - Selecione o item **client-resource** 
 
-**3** - Realize a requisição para o recurso **GET** com um dos valores descritos abaixo:
-
-
-- Cenários de sucesso:
-
-Preencha o campo com o valor: 1
-
-- Cenário com exceção sendo lançada:
-
-Preencha o campo com o valor: 0 
+**3** - Realize as operações conforme exemplos configurados em cada endpoint

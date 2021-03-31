@@ -1,7 +1,6 @@
-package io.platformbuilders.diogo.repository;
+package io.platformbuilders.api.repository;
 
-import io.platformbuilders.diogo.model.Client;
-import org.springframework.data.domain.Page;
+import io.platformbuilders.api.model.Client;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
