@@ -19,7 +19,7 @@ jobs:
         password: ${{ secrets.acr_registryclient_password }}
     
     - name: Build with Maven
-      run: mvn package
+      run: mvn clean install
     
     - name: Build and push image to ACR
       id: build-image
