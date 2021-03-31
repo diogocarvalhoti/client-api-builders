@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +45,7 @@ public class ClientApi {
             if (name == null) {
                 clientRepository.findAll().forEach(clients::add);
             } else {
-                clientRepository.findByNameContainingIgnoreCase(name).forEach(clients::add);
+                clientRepository.findByNameContainingIgnoreCase(name, Pageable.unpaged()).forEach(clients::add);
             }
             if (clients.isEmpty()) {
                 return new ResponseEntity<>(clients, HttpStatus.NO_CONTENT);
@@ -66,7 +67,7 @@ public class ClientApi {
                     @ApiResponse(responseCode = "500", description = "Internal Server Error")
             }
     )
-    @GetMapping("")
+    @GetMapping("/paginated")
     public ResponseEntity<List<Client>> getAllPaginated(@Parameter(description = "Nome do cliente", required = false) @RequestParam(required = false) String name,
                                                         @Parameter(description = "Página", required = true) @RequestParam(value = "pagina", defaultValue = "0") int page,
                                                         @Parameter(description = "Quantidade por página", required = true) @RequestParam(value = "quantidade", defaultValue = "10") int size) {
@@ -76,7 +77,7 @@ public class ClientApi {
             if (name == null) {
                 clientRepository.findAll(pageRequest).forEach(clients::add);
             } else {
-                clientRepository.findByNameContainingIgnoreCasePaginated(name, pageRequest).forEach(clients::add);
+                clientRepository.findByNameContainingIgnoreCase(name, pageRequest).forEach(clients::add);
             }
             if (clients.isEmpty()) {
                 return new ResponseEntity<>(clients, HttpStatus.NO_CONTENT);

@@ -11,11 +11,8 @@ import java.util.List;
 public interface ClientRepository extends PagingAndSortingRepository<Client, Long> {
 
     @Transactional(Transactional.TxType.NOT_SUPPORTED)
-    List<Client> findByNameContainingIgnoreCase(String name);
+    List<Client> findByNameContainingIgnoreCase(String name, Pageable pageable);
 
     @Transactional(Transactional.TxType.NOT_SUPPORTED)
     List<Client> findByActiveTrue();
-
-    @Transactional(Transactional.TxType.NOT_SUPPORTED)
-    List<Client> findByNameContainingIgnoreCasePaginated(String name, Pageable pageable);
 }
