@@ -9,6 +9,10 @@ on:
       - master
   workflow_dispatch:
 
+env:
+  AZURE_WEBAPP_NAME: client-api-builders  # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: ${{ github.workspace }}
+
 jobs:
   build:
     runs-on: 'ubuntu-latest'
