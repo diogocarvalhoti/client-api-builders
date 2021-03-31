@@ -18,6 +18,9 @@ jobs:
         username: ${{ secrets.acr_registryclient_username }}
         password: ${{ secrets.acr_registryclient_password }}
     
+    - name: Build with Maven
+      run: mvn package
+    
     - name: Build and push image to ACR
       id: build-image
       run: |
