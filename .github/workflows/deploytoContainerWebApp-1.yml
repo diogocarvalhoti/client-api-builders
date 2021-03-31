@@ -30,7 +30,7 @@ jobs:
     - name: Set Web App ACR authentication
       uses: Azure/appservice-settings@v1
       with:
-        app-name: client-resource-builders
+        app-name: client-api-builders
         app-settings-json: | 
           [
             {
@@ -52,5 +52,5 @@ jobs:
       
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: client-resource-builders
+        app-name: client-api-builders
         images: registryclient.azurecr.io/clientapibuilders-img:${{ github.sha }}
