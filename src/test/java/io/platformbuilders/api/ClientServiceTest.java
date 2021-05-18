@@ -3,12 +3,9 @@ package io.platformbuilders.api;
 import io.platformbuilders.api.dto.ClientDTO;
 import io.platformbuilders.api.model.Client;
 import io.platformbuilders.api.service.ClientService;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Optional;
@@ -18,20 +15,17 @@ import java.util.Optional;
  *
  * @author diogo.matos@meta.com.br
  */
-public class ClientServiceTest implements ITest{
+class ClientServiceTest implements ITest {
 
 	@MockBean
 	ClientService service;
 
-	@Before
-	public void initMocks() {
-	}
 	/**
-	 * 
+	 *
 	 */
 	@DisplayName("Test Mock helloService + helloRepository")
 	@Test
-	public void buscarPorId() {
+	void buscarPorId() {
 		System.out.println("teste");
 
 		Client client = new Client();

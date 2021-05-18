@@ -59,7 +59,6 @@ public class ClientResource {
     public ResponseEntity<List<ClientDTO>> getAllPaginated(@Parameter(description = "Nome do cliente", required = false) @RequestParam(required = false) String name,
                                                            @Parameter(description = "Página", required = true) @RequestParam(value = "pagina", defaultValue = "0") int page,
                                                            @Parameter(description = "Quantidade por página", required = true) @RequestParam(value = "quantidade", defaultValue = "10") int size) {
-        try {
             List<ClientDTO> dtos = this.service.findAllPaginated(name, page, size);
 
             if (dtos.isEmpty()) {
@@ -67,9 +66,6 @@ public class ClientResource {
             }
 
             return new ResponseEntity<>(dtos, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
 
 
@@ -107,12 +103,8 @@ public class ClientResource {
     )
     @PostMapping("")
     public ResponseEntity<ClientDTO> create(@io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Cliente que será cadastrado", required = true, content = @Content(schema = @Schema(implementation = ClientDTO.class))) @RequestBody ClientDTO dto) {
-        try {
-            ClientDTO _dto = this.service.save(dto);
-            return new ResponseEntity<>(_dto, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+            ClientDTO clientDTO = this.service.save(dto);
+            return new ResponseEntity<>(clientDTO, HttpStatus.CREATED);
     }
 
     @Operation(description = "Recurso para editar Cliente", summary = "Editar cliente",
@@ -130,10 +122,10 @@ public class ClientResource {
         Optional<ClientDTO> optional = this.service.findById(id);
 
         if (optional.isPresent()) {
-            ClientDTO _dto = optional.get();
-            _dto.setName(dto.getName());
-            _dto.setActive(dto.getActive());
-            return new ResponseEntity<>(this.service.save(_dto), HttpStatus.OK);
+            ClientDTO clientDTO = optional.get();
+            clientDTO.setName(dto.getName());
+            clientDTO.setActive(dto.getActive());
+            return new ResponseEntity<>(this.service.save(clientDTO), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

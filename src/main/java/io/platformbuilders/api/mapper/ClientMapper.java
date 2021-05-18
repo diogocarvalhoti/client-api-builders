@@ -30,9 +30,7 @@ public class ClientMapper extends AbstractMapper<Client, ClientDTO> {
 
     public List<ClientDTO> listEntityToDTO(List<Client> listPessoa) {
         List<ClientDTO> list = new ArrayList<>();
-        listPessoa.forEach(pessoa -> {
-            list.add(entityToDTO(pessoa));
-        });
+        listPessoa.forEach(pessoa -> list.add(entityToDTO(pessoa)));
 
         return list;
     }

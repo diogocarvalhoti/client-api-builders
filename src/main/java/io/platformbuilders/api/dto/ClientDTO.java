@@ -3,23 +3,12 @@ package io.platformbuilders.api.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "cliente")
 @Setter
 @Getter
 public class ClientDTO extends ModelDTO {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column(name = "nome")
     private String name;
-
-    @Column(name = "ativo")
     private Boolean active;
 
     public ClientDTO() {
