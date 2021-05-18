@@ -14,7 +14,7 @@ public class ClientDTO extends ModelDTO {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Column(name = "nome")
     private String name;

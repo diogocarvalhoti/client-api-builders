@@ -36,17 +36,13 @@ public class ClientResource {
     )
     @GetMapping("")
     public ResponseEntity<List<ClientDTO>> getAll(@Parameter(description = "Nome do cliente", required = false) @RequestParam(required = false) String name) {
-        try {
             List<ClientDTO> dtos = this.service.findAll(name);
 
             if (dtos.isEmpty()) {
-                return new ResponseEntity<>(dtos, HttpStatus.NO_CONTENT);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
             }
 
             return new ResponseEntity<>(dtos, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
 
     @Operation(description = "Recurso para consultar Clientes paginado", summary = "Consultar clientes paginado",
