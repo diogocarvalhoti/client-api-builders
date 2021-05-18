@@ -18,11 +18,15 @@ import java.util.Optional;
 @Transactional(Transactional.TxType.NOT_SUPPORTED)
 public class ClientService {
 
-    @Autowired
+
     private ClientRepository repository;
+    private ClientMapper mapper;
 
     @Autowired
-    private ClientMapper mapper;
+    public ClientService(ClientRepository repository, ClientMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     public List<ClientDTO> findAll(String name) {
         List<ClientDTO> dtos = new ArrayList<>();

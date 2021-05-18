@@ -1,6 +1,7 @@
 package io.platformbuilders.api;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -8,8 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  *
  * @author diogo.matos@meta.com.br
  */
-@SpringBootTest
-public class AbcTest {
+public class AbcTest implements ITest{
 
 	@Test
 	public void buscarPorId() {

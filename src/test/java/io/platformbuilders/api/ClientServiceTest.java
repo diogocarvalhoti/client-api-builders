@@ -2,46 +2,45 @@ package io.platformbuilders.api;
 
 import io.platformbuilders.api.dto.ClientDTO;
 import io.platformbuilders.api.model.Client;
-import io.platformbuilders.api.repository.ClientRepository;
 import io.platformbuilders.api.service.ClientService;
+import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Optional;
 
 /**
- * Teste para PerfilService.
+ * Teste para ClientService.
  *
  * @author diogo.matos@meta.com.br
  */
-@SpringBootTest
-public class ClientServiceTest {
+public class ClientServiceTest implements ITest{
 
-     
-	@InjectMocks
-	private ClientService service;
+	@MockBean
+	ClientService service;
 
-	@Mock
-	private ClientRepository repository;
-
+	@Before
+	public void initMocks() {
+	}
 	/**
 	 * 
 	 */
+	@DisplayName("Test Mock helloService + helloRepository")
 	@Test
 	public void buscarPorId() {
 		System.out.println("teste");
 
 		Client client = new Client();
 		client.setId(1L);
-		Mockito.when(repository.findById(1L)).thenReturn(java.util.Optional.of(client));
+//		Mockito.when(repository.findById(1L)).thenReturn(java.util.Optional.of(client));
 
 		Optional<ClientDTO> optional = service.findById(1L);
 
-		Assertions.assertTrue(optional.isPresent());
+		Assertions.assertFalse(optional.isPresent());
 		//		assertEquals(client.getId(), optional.get().getId());
 
 	}
