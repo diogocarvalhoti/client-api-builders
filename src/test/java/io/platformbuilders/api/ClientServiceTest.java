@@ -25,7 +25,7 @@ class ClientServiceTest implements ITest {
 	 */
 	@DisplayName("Test Mock helloService + helloRepository")
 	@Test
-	void buscarPorId() {
+	void findById() {
 		System.out.println("teste");
 
 		Client client = new Client();

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.1</version>
+		<version>2.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.platformbuilders.api</groupId>
@@ -13,6 +13,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>API de clientes</name>
 	<description>API de clientes desenvolvida para o processo seletivo - Diogo Carvalho de Matos</description>
+
+	<packaging>war</packaging>
 
 	<developers>
 		<developer>
@@ -43,6 +45,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
